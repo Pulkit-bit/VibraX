@@ -219,7 +219,7 @@ export default function Dashboard() {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: "bold", 
           }}>
-            Use the above search box to display <br /> your favourite songs
+            "Get ready to vibe with the hottest tracks! 🎶 Discover new tunes,<br /> Like songs, and Groove to the beat 🎵"
           </p>
         )}
       </div>

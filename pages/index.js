@@ -46,7 +46,7 @@ export default function Home() {
           </>
         ) : (
           <button className="btn" onClick={handleLogin}>
-            Login via Google
+            Sign-in via Google
           </button>
         )}
       </div>
