@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { logout } from "../src/firebase";
+import { logout, signInWithGoogle } from "../src/firebase";
 
 export default function Home() {
   const router = useRouter();
@@ -12,9 +12,17 @@ export default function Home() {
     // Listen for auth changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      // Redirect to dashboard if user is logged in
+      if (currentUser) {
+        router.push("/dashboard");
+      }
     });
     return () => unsubscribe();
-  }, [auth]);
+  }, [auth, router]);
+
+  const handleLogin = async () => {
+    await signInWithGoogle();
+  };
 
   return (
     <>
@@ -37,8 +45,8 @@ export default function Home() {
             </button>
           </>
         ) : (
-          <button className="btn" onClick={() => router.push("/login")}>
-            Login
+          <button className="btn" onClick={handleLogin}>
+            Login via Google
           </button>
         )}
       </div>

@@ -33,12 +33,12 @@ const signInWithGoogle = async () => {
   }
 };
 
-// ✅ Logout Function (Redirect to /login)
+// ✅ Logout Function (Redirect to home page)
 const logout = async () => {
   try {
     await signOut(auth);
     console.log("User logged out");
-    window.location.href = "/login"; // Redirect after logout
+    window.location.href = "/"; // Redirect to home page after logout
   } catch (error) {
     console.error("Error during logout:", error);
   }
